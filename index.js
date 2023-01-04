@@ -1,6 +1,6 @@
-const  ProductManager = require('./managers/ProductManager');
+const  ProductManager = require('./src/manager/ProductManager');
 
-const manager = new ProductManager('./data/Products.json');
+const manager = new ProductManager('./src/Products.json');
 
 const productsManager = async () => {
     try {

@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"title": "Hamburguesa",
+		"description": "Sencilla",
+		"price": 10000,
+		"thumbnail": "none",
+		"code": 132456,
+		"stock": 3
+	},
+	{
+		"id": 2,
+		"title": "Hamburguesa",
+		"description": "Doble",
+		"price": 16000,
+		"thumbnail": "none",
+		"code": 132457,
+		"stock": 12
+	},
+	{
+		"id": 3,
+		"title": "Hamburguesa",
+		"description": "triple",
+		"price": 22000,
+		"thumbnail": "none",
+		"code": 132458,
+		"stock": 2
+	},
+	{
+		"id": 4,
+		"title": "Hamburguesa",
+		"description": "Sencilla",
+		"price": 10000,
+		"thumbnail": "none",
+		"code": 132456,
+		"stock": 3
+	},
+	{
+		"id": 5,
+		"title": "Hamburguesa",
+		"description": "Doble",
+		"price": 16000,
+		"thumbnail": "none",
+		"code": 132457,
+		"stock": 12
+	},
+	{
+		"id": 6,
+		"title": "Hamburguesa",
+		"description": "triple",
+		"price": 22000,
+		"thumbnail": "none",
+		"code": 132458,
+		"stock": 2
+	}
+]
