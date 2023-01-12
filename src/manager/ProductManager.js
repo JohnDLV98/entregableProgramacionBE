@@ -40,12 +40,13 @@ class ProductManager {
                 }
             const newProduct = {
                 id: ProductManager.idCounter,
+                status: true,
                 ...product
             };
             products.push(newProduct);
             const productString = await JSON.stringify(products, null, "\t");
             await this.writeFile(productString); 
-            return newProduct;   
+              
         } catch (error) {
             throw new Error(error);
         }
@@ -56,10 +57,6 @@ class ProductManager {
         try {
             const products = await this.getProducts();
             const foundProduct = products.find( element => element.id === idProduct);
-            if(!foundProduct) {
-                throw new Error("Not Found")
-            }
-
             return foundProduct;
         } catch (error) {
             throw new Error(error);
@@ -84,7 +81,7 @@ class ProductManager {
 
         await this.writeFile(stringProductsList);
 
-        return stringProductsList;
+        
     }
 
     async deleteProduct(idProduct) {
@@ -96,10 +93,8 @@ class ProductManager {
         const stringProductsList = await JSON.stringify(products, null, "\t");
 
         await this.writeFile(stringProductsList);
-
-        return stringProductsList;
+        
     }
 }
-
 
 module.exports = ProductManager;

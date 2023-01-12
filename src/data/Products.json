@@ -1,6 +1,7 @@
 [
 	{
 		"id": 1,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "Sencilla",
 		"price": 10000,
@@ -10,6 +11,7 @@
 	},
 	{
 		"id": 2,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "Doble",
 		"price": 16000,
@@ -19,6 +21,7 @@
 	},
 	{
 		"id": 3,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "triple",
 		"price": 22000,
@@ -28,6 +31,7 @@
 	},
 	{
 		"id": 4,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "Sencilla",
 		"price": 10000,
@@ -37,6 +41,7 @@
 	},
 	{
 		"id": 5,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "Doble",
 		"price": 16000,
@@ -46,6 +51,7 @@
 	},
 	{
 		"id": 6,
+		"status": true,
 		"title": "Hamburguesa",
 		"description": "triple",
 		"price": 22000,
