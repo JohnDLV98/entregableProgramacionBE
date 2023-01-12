@@ -33,13 +33,9 @@ class CartManager {
     async addCart() {
         try {
             const carts = await this.getCarts();
-                if (!carts.length) {
-                    CartManager.idCounter = 1;
-                } else {
-                    CartManager.idCounter= carts[carts.length -1].id + 1;            
-                }
+            const newId = carts.length > 0 ? carts[carts.length -1 ].id + 1 : 1
             const newCart = {
-                id: CartManager.idCounter,                
+                id: newId,                
                 products: []
             };
             carts.push(newCart);
@@ -50,6 +46,38 @@ class CartManager {
             throw new Error(error);
         }
     } 
+
+    async addProduct(cartId, productId){
+        const Carts = await this.getCarts()
+        const cart = await this.getCartById(cartId)
+        const cartIndex = Carts.findIndex(item => item.id === cart.id)
+        if(cart.error){
+            return cart.error
+        }
+        const existingProduct = cart.products.find(prod => prod.product === productId)
+        if(existingProduct){
+            const updatedCart = cart.products.map(prod => {
+                if(prod.product === productId){
+                    return {
+                        product: prod.id,
+                        quantity: ++prod.quantity 
+                    }
+                }else{
+                    return prod
+                }
+            })
+        }else{
+            cart.products.push({
+                product: productId,
+                quantity: 1
+            })
+        }
+        Carts[cartIndex] = cart
+        const cartString = JSON.stringify(Carts, null, '\t')
+        await fs.writeFile(this.path, cartString)
+        console.log('product added')
+        return cart
+    }
 
     async getCartById(idCart) {
 

@@ -38,43 +38,23 @@ router.get('/:cid', async (req, res) => {
     });
 })
 
-router.post('/:cid/product/:pid', async (req, res) => {
-    const { pid, cid } = req.params;
-    const products = await managerProducts.getProducts();
-    const carts = await managerCarts.getCarts();
-
-    const product = products.find((product) => product.id === +pid); 
-    if(!product){
-        return res.status(404).json({
+router.post('/:cid/product/:pid', async(req,res)=>{
+    const cartId = Number(req.params.cid)
+    const productId = Number(req.params.pid)
+    const addProduct = await managerCarts.addProduct(cartId, productId)
+    if(addProduct.error){
+        return res.status(400).send({
             status: "error",
-            error: "Product Not Found"
+            error: addProduct.error
         })
-    };
-
-    const cart = carts.find((cart) => cart.id === +cid);
-    if(!cart){
-        return res.status(404).json({
-            status: "error",
-            error: "Cart Not Found"
-        });
-    };
-    let newProperties;
-    const productIndex = cart.products.findIndex((item) => item.product === product.id);
-    if(productIndex < 0){
-           
-            
-        }
-        
-    } else {
-        
-                
-        }
-    
-    await managerCarts.updateCart(+cid, newProperties);
-    return res.json({
-        status: "Success",
-        data: cart.products
+    }
+    res.send({
+        status: 'success',
+        newCart: addProduct
     })
-   
 })
+    
+        
+    
+
 module.exports = router;
